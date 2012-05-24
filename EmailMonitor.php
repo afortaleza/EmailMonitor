@@ -22,12 +22,14 @@
             );
         }
 
-        function display_emails($p_event)
+        function display_emails($p_event, $p_bug_id)
         {
 ?>
             <table class="width100" cellspacing="1">
                 <tr>
-                    <td class="form-title"><?= plugin_lang_get('email_list_title') ?></td>
+                    <td class="form-title">
+                        <?php echo plugin_lang_get('email_list_title') ?>
+                    </td>
                 </tr>
                 <tr>
                     <td>afortaleza@hotmail.com</td>
