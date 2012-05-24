@@ -24,6 +24,7 @@
 
         function display_emails($p_event, $p_bug_id)
         {
+            $f_bug_id = gpc_get_int( 'bug_id' );
             collapse_open('EmailMonitor');
 ?>
             <br/>
