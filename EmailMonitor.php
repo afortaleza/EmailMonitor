@@ -1,8 +1,8 @@
 <?php
     final class EmailMonitorPlugin extends MantisPlugin {
         function register() {
-            $this->name = 'EmailMonitor';
-            $this->description = 'A plugin for that allows email subscription to the issue monitor feature.';
+            $this->name = 'Email Monitor';
+            $this->description = 'Allows email subscriptions to the issue monitor feature.';
             $this->page = '';
 
             $this->version = '1.0';
