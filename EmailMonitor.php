@@ -25,17 +25,16 @@
         function schema()
         {
             return array(
-                array('CreateTableSQL',
-                    array(
-                        plugin_table('email'),
-                        "i I NOTNULL UNSIGNED AUTOINCREMENT PRIMARY,".
-                        "bug_id NOTNULL UNSIGNED,".
-                        "email C(128) NOTNULL DEFAULT \" '' \" PRIMARY",
-                        array(
-                            'mysql' => 'DEFAULT CHARSET=utf8'
-                        )
-                    )
-                )
+                array('CreateTableSQL', 
+                	array(
+                		plugin_table('email'), 
+                		"
+                    	id			I		NOTNULL UNSIGNED AUTOINCREMENT PRIMARY,
+                    	bug_id		I		NOTNULL UNSIGNED,
+                    	email		C(128)	NOTNULL
+                    	"
+            		)
+        		),
             );
         }
 
