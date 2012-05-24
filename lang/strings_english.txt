@@ -3,4 +3,8 @@
     # Licensed under the MIT license
 
     $s_plugin_EmailMonitor_email_list_title = 'Emails monitoring this issue';
+    $s_plugin_EmailMonitor_email_list = 'Email List';
+    $s_plugin_EmailMonitor_email_add = 'Add';
+    $s_plugin_EmailMonitor_email_delete = 'Delete';
+    $s_plugin_EmailMonitor_email = 'Email';
 ?>
