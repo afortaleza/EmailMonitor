@@ -45,9 +45,7 @@
                             $s_delete_link = plugin_page('email_delete').'&bug_id='.$f_bug_id.'&email=afortaleza'.$i.'@vivaimoveis.com.br'.form_security_param('plugin_EmailMonitor_email_delete');
 ?>
                             <a href="mailto:root@localhost">afortaleza<?php echo $i ?>@vivaimoveis.com.br</a> 
-                            [<a class="small" href="<?php echo $s_delete_link ?>">
-                                    <?php echo plugin_lang_get('email_delete') ?>
-                            </a>]
+                            [<a class="small" href="<?php echo $s_delete_link ?>"><?php echo plugin_lang_get('email_delete') ?></a>]
 <?php
                         }
 ?>
