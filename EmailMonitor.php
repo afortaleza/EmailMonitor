@@ -1,5 +1,5 @@
 <?php
-    final class ExamplePlugin extends MantisPlugin {
+    final class EmailMonitorPlugin extends MantisPlugin {
         function register() {
             $this->name = 'EmailMonitor';
             $this->description = 'A plugin for that allows email subscription to the issue monitor feature.';
