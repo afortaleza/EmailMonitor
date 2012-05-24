@@ -22,6 +22,23 @@
             );
         }
 
+        function schema()
+        {
+            return array(
+                array('CreateTableSQL',
+                    array(
+                        plugin_table('email'),
+                        "i I NOTNULL UNSIGNED AUTOINCREMENT PRIMARY,".
+                        "bug_id NOTNULL UNSIGNED,".
+                        "email C(128) NOTNULL DEFAULT \" '' \" PRIMARY",
+                        array(
+                            'mysql' => 'DEFAULT CHARSET=utf8'
+                        )
+                    )
+                )
+            );
+        }
+
         function display_emails($p_event, $p_bug_id)
         {
             $f_bug_id = gpc_get_int('id');
