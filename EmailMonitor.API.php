@@ -24,6 +24,16 @@ function EmailMonitor_List($t_bug_id)
     return $t_emails;
 }
 
+function EmailMonitor_Exits($t_bug_id, $t_email)
+{
+    $t_email_table = plugin_table('email', 'EmailMonitor');
+    $t_query = "SELECT id FROM $t_email_table WHERE bug_id=".db_param()." AND $t_email=".db_param();
+
+    db_query_bound($t_query, array($t_bug_id, $t_email));
+
+    return db_num_rows($t_query) > 0;
+}
+
 function EmailMonitor_Add($t_bug_id, $t_email)
 {
     $t_email_table = plugin_table('email', 'EmailMonitor');

@@ -7,4 +7,7 @@
     $s_plugin_EmailMonitor_email_add = 'Add';
     $s_plugin_EmailMonitor_email_delete = 'Delete';
     $s_plugin_EmailMonitor_email = 'Email';
+
+    // Mantis error message
+    $MANTIS_ERROR[ERROR_EMAIL_ALREDY_MONITORING] = 'Email "%1$s" already monitoring this issue';
 ?>
