@@ -33,7 +33,7 @@ function EmailMonitor_List($t_bug_id)
 function EmailMonitor_Exists($t_bug_id, $t_email)
 {
     $t_email_table = plugin_table('email', 'EmailMonitor');
-    $t_query = "SELECT id FROM $t_email_table WHERE bug_id=".db_param()." AND $t_email=".db_param();
+    $t_query = "SELECT id FROM $t_email_table WHERE bug_id=".db_param()." AND email=".db_param();
 
     db_query_bound($t_query, array($t_bug_id, $t_email));
 
