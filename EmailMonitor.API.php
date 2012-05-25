@@ -30,7 +30,7 @@ function EmailMonitor_List($t_bug_id)
  * @param string Email address to be checked
  * @return bool True if email is already monitoring the issue
  */
-function EmailMonitor_Exits($t_bug_id, $t_email)
+function EmailMonitor_Exists($t_bug_id, $t_email)
 {
     $t_email_table = plugin_table('email', 'EmailMonitor');
     $t_query = "SELECT id FROM $t_email_table WHERE bug_id=".db_param()." AND $t_email=".db_param();

@@ -3,6 +3,7 @@
 # Copyright (c) 2012 Anderson Fortaleza
 # Licensed under the MIT license
 
+require_once($t_plugin_path.'EmailMonitor/EmailMonitor.API.php' );
 form_security_validate('plugin_EmailMonitor_email_add');
 
 $t_bug_id = $_POST['bug_id'];
