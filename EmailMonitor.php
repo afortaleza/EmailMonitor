@@ -19,6 +19,11 @@ final class EmailMonitorPlugin extends MantisPlugin {
         $this->url = 'https://www.github.com/afortaleza';
     }
 
+    function init()
+    {
+        require_once('EmailMonitor.API.php');
+    }
+
     function hooks()
     {
         return array(
@@ -45,6 +50,7 @@ final class EmailMonitorPlugin extends MantisPlugin {
     function display_emails($p_event, $p_bug_id)
     {
         $f_bug_id = gpc_get_int('id');
+        $t_emails = EmailMonitor_List($f_bug_id);
         collapse_open('EmailMonitor');
 ?>
         <br/>
@@ -61,13 +67,12 @@ final class EmailMonitorPlugin extends MantisPlugin {
                 </td>
                 <td>
 <?php
-                    for ($i = 0; $i < 4; $i++)
+                    foreach ($t_emails as $email)
                     {
-                        $s_delete_link = plugin_page('email_delete').'&bug_id='.$f_bug_id.'&email=afortaleza'.$i.'@vivaimoveis.com.br'.form_security_param('plugin_EmailMonitor_email_delete');
+                        $s_delete_link = plugin_page('email_delete').'&bug_id='.$f_bug_id.'&email='.$email.form_security_param('plugin_EmailMonitor_email_delete');
 ?>
-                        <a href="mailto:root@localhost">afortaleza<?php echo $i ?>@vivaimoveis.com.br</a> 
+                        <a href="mailto:<?php echo $email ?>"><?php echo $email ?></a> 
                         [<a class="small" href="<?php echo $s_delete_link ?>"><?php echo plugin_lang_get('email_delete') ?></a>]
-<?php
                     }
 ?>
                     <br/>
