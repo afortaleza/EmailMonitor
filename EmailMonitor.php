@@ -75,6 +75,7 @@ final class EmailMonitorPlugin extends MantisPlugin {
 
                     <?php echo plugin_lang_get('email') ?>
                     <form action="<?php echo plugin_page('email_add') ?>" method="post">
+                        <?php echo form_security_field('plugin_EmailMonitor_email_add') ?>
                         <input type="hidden" name="bug_id" value="<?php echo $f_bug_id ?>">
                         <input type="text" name="email" style="width: 180px;">
                         <input type="submit" class="button" value="<?php echo plugin_lang_get('email_add') ?>">
