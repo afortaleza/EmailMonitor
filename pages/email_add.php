@@ -13,7 +13,7 @@ if (email_is_valid($t_email))
 {
     if (EmailMonitor_Exists($t_bug_id, $t_email))
     {
-        trigger_error(ERROR_EMAIL_ALREADY_MONITORING, ERROR);
+        trigger_error(plugin_lang_get('error_monitoring'), ERROR);
     }
     else
     {
