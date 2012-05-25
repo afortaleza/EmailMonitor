@@ -60,11 +60,11 @@ function EmailMonitor_Add($t_bug_id, $t_email)
  * Deletes email from the issue monitor list
  * @param int EmailMonitor ID
  */
-function EmailMonitor_Delete($t_id)
+function EmailMonitor_Delete($t_bug_id, $t_email)
 {
     $t_email_table = plugin_table('email', 'EmailMonitor');
-    $t_query = "DELETE FROM $t_email_table WHERE id = $t_id";
+    $t_query = "DELETE FROM $t_email_table WHERE bug_id=".db_param()." AND email=".db_param();
 
-    db_query_bound($t_query);
+    db_query_bound($t_query, array($t_bug_id, $t_email));
 }
 ?>

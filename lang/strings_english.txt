@@ -9,5 +9,6 @@
     $s_plugin_EmailMonitor_email = 'Email';
 
     // Mantis error message
-    $MANTIS_ERROR[ERROR_EMAIL_ALREDY_MONITORING] = 'Email "%1$s" already monitoring this issue';
+    $MANTIS_ERROR[ERROR_EMAIL_ALREDY_MONITORING] = 'This email already monitoring this issue';
+    $MANTIS_ERROR[ERROR_EMAIL_NOT_MONITORING] = 'This email is not monitoring this issue';
 ?>
