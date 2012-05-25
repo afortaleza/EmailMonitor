@@ -24,6 +24,12 @@ function EmailMonitor_List($t_bug_id)
     return $t_emails;
 }
 
+/**
+ * Check if email already monitors the issue
+ * @param int Bug ID
+ * @param string Email address to be checked
+ * @return bool True if email is already monitoring the issue
+ */
 function EmailMonitor_Exits($t_bug_id, $t_email)
 {
     $t_email_table = plugin_table('email', 'EmailMonitor');
@@ -34,6 +40,12 @@ function EmailMonitor_Exits($t_bug_id, $t_email)
     return db_num_rows($t_query) > 0;
 }
 
+/**
+ * Adds email to issue monitor list
+ * @param int Bug ID
+ * @param string Email address to be added to the issue monitor list
+ * @return int The ID of the database record added
+ */
 function EmailMonitor_Add($t_bug_id, $t_email)
 {
     $t_email_table = plugin_table('email', 'EmailMonitor');
@@ -44,6 +56,10 @@ function EmailMonitor_Add($t_bug_id, $t_email)
     return db_insert_id($t_email_table);
 }
 
+/**
+ * Deletes email from the issue monitor list
+ * @param int EmailMonitor ID
+ */
 function EmailMonitor_Delete($t_id)
 {
     $t_email_table = plugin_table('email', 'EmailMonitor');
