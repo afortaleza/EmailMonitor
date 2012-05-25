@@ -19,6 +19,10 @@ final class EmailMonitorPlugin extends MantisPlugin {
         $this->url = 'https://www.github.com/afortaleza';
     }
 
+    function init() {
+        require_once( 'EmailMonitor.API.php' );
+    }
+
     function hooks()
     {
         return array(

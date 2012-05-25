@@ -67,5 +67,4 @@ function EmailMonitor_Delete($t_id)
 
     db_query_bound($t_query);
 }
-
 ?>
