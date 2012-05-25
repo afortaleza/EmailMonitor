@@ -8,8 +8,7 @@
     $s_plugin_EmailMonitor_email_delete = 'Delete';
     $s_plugin_EmailMonitor_email = 'Email';
 
-    // Mantis error message
-    global $MANTIS_ERROR;
-    $MANTIS_ERROR[ERROR_EMAIL_ALREDY_MONITORING] = 'This email already monitoring this issue';
-    $MANTIS_ERROR[ERROR_EMAIL_NOT_MONITORING] = 'This email is not monitoring this issue';
+    // Error messages
+    $s_plugin_EmailMonitor_error_monitoring = 'This email already monitoring this issue';
+    $s_plugin_EmailMonitor_error_not_monitoring = 'This email is not monitoring this issue';
 ?>

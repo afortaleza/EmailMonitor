@@ -17,7 +17,7 @@ if (email_is_valid($t_email))
     }
     else
     {
-        trigger_error(ERROR_EMAIL_NOT_MONITORING, ERROR);
+        trigger_error(plugin_lang_get('error_not_monitoring'), ERROR);
     }
 }
 else 
