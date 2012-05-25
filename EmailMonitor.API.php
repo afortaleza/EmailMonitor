@@ -49,7 +49,7 @@ function EmailMonitor_Exists($t_bug_id, $t_email)
 function EmailMonitor_Add($t_bug_id, $t_email)
 {
     $t_email_table = plugin_table('email', 'EmailMonitor');
-    $t_query = "INSERT INTO $t_email_table VALUES (".db_param().", ".db_param().")";
+    $t_query = "INSERT INTO $t_email_table (bug_id, email) VALUES (".db_param().", ".db_param().")";
 
     db_query_bound($t_query, array($t_bug_id, $t_email));
 
