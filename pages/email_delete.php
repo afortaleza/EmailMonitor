@@ -4,7 +4,7 @@
 # Licensed under the MIT license
 
 require_once($t_plugin_path.'EmailMonitor/EmailMonitor.API.php' );
-form_security_validate('plugin_EmailMonitor_email_add');
+form_security_validate('plugin_EmailMonitor_email_delete');
 
 $t_bug_id = $_GET['bug_id'];
 $t_email = $_GET['email'];
