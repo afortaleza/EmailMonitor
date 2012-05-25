@@ -73,6 +73,7 @@ final class EmailMonitorPlugin extends MantisPlugin {
 ?>
                         <a href="mailto:<?php echo $email ?>"><?php echo $email ?></a> 
                         [<a class="small" href="<?php echo $s_delete_link ?>"><?php echo plugin_lang_get('email_delete') ?></a>]
+<?php                        
                     }
 ?>
                     <br/>
