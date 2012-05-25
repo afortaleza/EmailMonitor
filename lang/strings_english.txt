@@ -1,5 +1,5 @@
 <?php
-    # Copyright (c) 2012 John Reese
+    # Copyright (c) 2012 Anderson Fortaleza
     # Licensed under the MIT license
 
     $s_plugin_EmailMonitor_email_list_title = 'Emails monitoring this issue';
