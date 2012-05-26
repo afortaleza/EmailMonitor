@@ -49,14 +49,12 @@ final class EmailMonitorPlugin extends MantisPlugin {
 
     function install()
     {
-        if (user_get_id_by_name('anderson'))
+        if (!user_get_id_by_name('plugin_EmailMonitor_user'))
         {
-            return true;
+            user_create('plugin_EmailMonitor_user', 'default-password');
         }
-        else
-        {
-            return false;
-        }
+
+        return true;
     }
 
     function display_emails($p_event, $p_bug_id)
