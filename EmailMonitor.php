@@ -47,6 +47,18 @@ final class EmailMonitorPlugin extends MantisPlugin {
         );
     }
 
+    function install()
+    {
+        if (user_get_id_by_name('anderson'))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     function display_emails($p_event, $p_bug_id)
     {
         $f_bug_id = gpc_get_int('id');
