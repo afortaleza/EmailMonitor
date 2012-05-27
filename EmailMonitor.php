@@ -51,7 +51,11 @@ final class EmailMonitorPlugin extends MantisPlugin {
     {
         if (!user_get_id_by_name('plugin_EmailMonitor_user'))
         {
-            user_create('plugin_EmailMonitor_user', 'default-password');
+            $t_random_password = auth_generate_random_password('436173736961436172646f736f');
+            $t_plain_password = auth_process_plain_password($t_random_password);
+
+            // Create protected user with random password
+            user_create('plugin_EmailMonitor_user', $t_plain_password, '', null, true);
         }
 
         return true;
