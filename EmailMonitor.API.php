@@ -68,9 +68,4 @@ function EmailMonitor_Delete($t_bug_id, $t_email)
     db_query_bound($t_query, array($t_bug_id, $t_email));
 }
 
-function EmailMonitor_PasswordChanged()
-{
-    
-}
-
 ?>

@@ -28,6 +28,7 @@ final class EmailMonitorPlugin extends MantisPlugin {
     {
         return array(
             'EVENT_VIEW_BUG_EXTRA' => 'display_emails',
+            'EVENT_NOTIFY_USER_INCLUDE' => 'include_emails'
         );
     }
 
@@ -116,6 +117,19 @@ final class EmailMonitorPlugin extends MantisPlugin {
         </table>
 <?php
         collapse_end('EmailMonitor');
+    }
+
+    function include_emails($t_bud_id, $t_notification_type)
+    {
+        $t_emails = EmailMonitor_List($t_bud_id);
+        $t_return = array();
+        $t_user_id = user_get_id_by_name('plugin_EmailMonitor_user');
+
+        foreach ($t_emails as $t_current_email) {
+            array_push($t_return, array( 'user_id' => $t_user_id, 'email' => $t_current_email ));
+        }
+
+        return $t_return;
     }
 }
 
