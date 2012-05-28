@@ -119,7 +119,7 @@ final class EmailMonitorPlugin extends MantisPlugin {
         collapse_end('EmailMonitor');
     }
 
-    function include_emails($t_bud_id, $t_notification_type)
+    function include_emails($t_notification_type, $t_bud_id)
     {
         $t_emails = EmailMonitor_List($t_bud_id);
         $t_return = array();
