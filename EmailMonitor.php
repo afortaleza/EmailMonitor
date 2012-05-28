@@ -64,59 +64,63 @@ final class EmailMonitorPlugin extends MantisPlugin {
 
     function display_emails($p_event, $p_bug_id)
     {
-        $f_bug_id = gpc_get_int('id');
-        $t_emails = EmailMonitor_List($f_bug_id);
-        collapse_open('EmailMonitor');
-?>
-        <br/>
-        <a name="changesets"/>
-        <table class="width100" cellspacing="1">
-            <tr>
-                <td class="form-title" colspan="2">
-                    <?php collapse_icon( 'EmailMonitor' ); echo plugin_lang_get('email_list_title') ?>
-                </td>
-            </tr>
-            <tr class="row-1">
-                <td class="category" width="15%">
-                    <?php echo plugin_lang_get('email_list') ?>
-                </td>
-                <td>
-<?php
-                    foreach ($t_emails as $email)
-                    {
-                        $s_delete_link = plugin_page('email_delete').'&bug_id='.$f_bug_id.'&email='.$email.form_security_param('plugin_EmailMonitor_email_delete');
-?>
-                        <a href="mailto:<?php echo $email ?>"><?php echo $email ?></a> 
-                        [<a class="small" href="<?php echo $s_delete_link ?>"><?php echo plugin_lang_get('email_delete') ?></a>]
-<?php                        
-                    }
-?>
-                    <br/>
-                    <br/>
+        if ( access_has_bug_level( config_get( 'show_monitor_list_threshold' ), $p_bug_id ) ) 
+        {
 
-                    <?php echo plugin_lang_get('email') ?>
-                    <form action="<?php echo plugin_page('email_add') ?>" method="post">
-                        <?php echo form_security_field('plugin_EmailMonitor_email_add') ?>
-                        <input type="hidden" name="bug_id" value="<?php echo $f_bug_id ?>">
-                        <input type="text" name="email" style="width: 180px;">
-                        <input type="submit" class="button" value="<?php echo plugin_lang_get('email_add') ?>">
-                    </form>
-                </td>
-            </tr>
-        </table>
-<?php
-        collapse_closed('EmailMonitor');
+            $f_bug_id = gpc_get_int('id');
+            $t_emails = EmailMonitor_List($f_bug_id);
+            collapse_open('EmailMonitor');
 ?>
-        <br/>
-        <table class="width100" cellspacing="1">
-            <tr>
-                <td class="form-title">
-                    <?php collapse_icon('EmailMonitor'); echo plugin_lang_get('email_list_title') ?>
-                </td>
-            </tr>
-        </table>
+            <br/>
+            <a name="changesets"/>
+            <table class="width100" cellspacing="1">
+                <tr>
+                    <td class="form-title" colspan="2">
+                        <?php collapse_icon( 'EmailMonitor' ); echo plugin_lang_get('email_list_title') ?>
+                    </td>
+                </tr>
+                <tr class="row-1">
+                    <td class="category" width="15%">
+                        <?php echo plugin_lang_get('email_list') ?>
+                    </td>
+                    <td>
 <?php
-        collapse_end('EmailMonitor');
+                        foreach ($t_emails as $email)
+                        {
+                            $s_delete_link = plugin_page('email_delete').'&bug_id='.$f_bug_id.'&email='.$email.form_security_param('plugin_EmailMonitor_email_delete');
+?>
+                            <a href="mailto:<?php echo $email ?>"><?php echo $email ?></a> 
+                            [<a class="small" href="<?php echo $s_delete_link ?>"><?php echo plugin_lang_get('email_delete') ?></a>]
+<?php                        
+                        }
+?>
+                        <br/>
+                        <br/>
+
+                        <?php echo plugin_lang_get('email') ?>
+                        <form action="<?php echo plugin_page('email_add') ?>" method="post">
+                            <?php echo form_security_field('plugin_EmailMonitor_email_add') ?>
+                            <input type="hidden" name="bug_id" value="<?php echo $f_bug_id ?>">
+                            <input type="text" name="email" style="width: 180px;">
+                            <input type="submit" class="button" value="<?php echo plugin_lang_get('email_add') ?>">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+<?php
+            collapse_closed('EmailMonitor');
+?>
+            <br/>
+            <table class="width100" cellspacing="1">
+                <tr>
+                    <td class="form-title">
+                        <?php collapse_icon('EmailMonitor'); echo plugin_lang_get('email_list_title') ?>
+                    </td>
+                </tr>
+            </table>
+<?php
+            collapse_end('EmailMonitor');
+        }
     }
 
     function include_emails($t_notification_type, $t_bud_id)
